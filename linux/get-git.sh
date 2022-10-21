@@ -187,6 +187,10 @@ fi
 ( $MKDIR -pv $siteBackupDir ) #force it, no error if existing
 # need more care on files...
 
+if [ ! -d $siteBackupDir ]; then
+    echo " Backup directory: $siteBackupDir non-existant/could not create"
+    exit 1
+fi
 
 newArchive="${siteBackupDir}/${inSiteName}${mark}${SUFIX}"
 tag=0
